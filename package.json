@@ -4,6 +4,24 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Production-ready resilient email sending service with retry logic, fallback, and circuit breakers",
+  "homepage": "https://github.com/Pranjul1650/Email",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pranjul1650/Email.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Pranjul1650/Email/issues"
+  },
+  "author": "Pranjul1650",
+  "keywords": [
+    "email",
+    "resilient",
+    "retry-logic",
+    "circuit-breaker",
+    "supabase",
+    "typescript",
+    "react"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
