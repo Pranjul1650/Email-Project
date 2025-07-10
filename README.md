@@ -4,7 +4,7 @@ A production-ready email sending service built with TypeScript, React, and Supab
 
 ## 🚀 Live Demo
 
-[View Live Application](https://your-deployment-url.vercel.app)
+[View Live Application](https://email-restiling-api-ser.netlify.app/)
 
 ## 🏗️ Architecture
 
