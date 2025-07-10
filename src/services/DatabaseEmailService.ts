@@ -82,15 +82,30 @@ export class DatabaseEmailService {
     try {
       const { data, error } = await supabase
         .from('email_messages')
-        .select(`
-          *,
-          email_attempts (*)
-        `)
+        .select('*')
         .order('created_at', { ascending: false })
         .limit(50);
 
       if (error) throw error;
-      return data || [];
+      
+      // Get email attempts separately for each message
+      const emailsWithAttempts = await Promise.all(
+        (data || []).map(async (email) => {
+          const { data: attempts, error: attemptsError } = await supabase
+            .from('email_attempts')
+            .select('*')
+            .eq('message_id', email.id);
+          
+          if (attemptsError) {
+            console.warn('Failed to load attempts for email:', email.id, attemptsError);
+            return { ...email, email_attempts: [] };
+          }
+          
+          return { ...email, email_attempts: attempts || [] };
+        })
+      );
+      
+      return emailsWithAttempts;
     } catch (error) {
       console.error('Get all emails error:', error);
       throw error;
