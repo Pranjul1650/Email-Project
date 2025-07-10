@@ -1,8 +1,8 @@
 import React from 'react';
-import EmailDemo from './components/EmailDemo';
+import DatabaseEmailDemo from './components/DatabaseEmailDemo';
 
 function App() {
-  return <EmailDemo />;
+  return <DatabaseEmailDemo />;
 }
 
 export default App;
